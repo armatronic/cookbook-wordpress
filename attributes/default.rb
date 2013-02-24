@@ -24,10 +24,14 @@ default['wordpress']['checksum'] = ""
 default['wordpress']['dir'] = "/var/www/wordpress"
 default['wordpress']['db']['database'] = "wordpressdb"
 default['wordpress']['db']['user'] = "wordpressuser"
-default['wordpress']['admin']['cli_commands'] = []
-default['wordpress']['cli_install_dir'] = "/opt/wp-cli"
+default['wordpress']['server_aliases'] = [node['fqdn']]
+
+default['wordpress']['site_title'] = "Wordpress Site"
+default['wordpress']['local_alias_dir'] = "wordpress"
+
 default['wordpress']['admin']['email'] = 'admin@localhost.localdomain'
 default['wordpress']['admin']['user'] = 'admin'
 default['wordpress']['admin']['password'] = 'admin'
+
+default['wordpress']['cli_install_dir'] = "/opt/wp-cli"
 default['wordpress']['cli_commands'] = []
-default['wordpress']['site_title'] = "Wordpress Site"
