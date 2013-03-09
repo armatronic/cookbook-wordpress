@@ -2,6 +2,8 @@
 # https://github.com/wp-cli/wp-cli
 include_recipe "wordpress"
 include_recipe "git"
+# WP-CLI requires Composer now.
+include_recipe "composer"
 
 # Set up Wordpress CLI.
 # Use wordpress settings as a base unless overwritten.
