@@ -16,6 +16,11 @@ git config[:cli_install_dir] do
   enable_submodules true
 end
 
+# Set up Composer dependencies that WP-CLI uses.
+execute "composer install" do
+  cwd    config[:cli_install_dir]
+  action :run
+end
 
 # Which URL should this be installed to?
 install_url = config[:url]
