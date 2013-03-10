@@ -8,17 +8,17 @@ include_recipe "composer"
 # Set up Wordpress CLI.
 # Use wordpress settings as a base unless overwritten.
 config  = node[:wordpress]
-command = "#{config[:cli_install_dir]}/bin/wp"
-git config[:cli_install_dir] do
+command = "#{config[:cli][:install_dir]}/bin/wp"
+git config[:cli][:install_dir] do
   repository        "git://github.com/wp-cli/wp-cli.git"
-  reference         "master"
+  reference         config[:cli][:version]
   action            :sync
   enable_submodules true
 end
 
 # Set up Composer dependencies that WP-CLI uses.
 execute "composer install" do
-  cwd    config[:cli_install_dir]
+  cwd    config[:cli][:install_dir]
   action :run
 end
 
@@ -59,7 +59,7 @@ end
 
 
 # Run each CLI command.
-config[:cli_commands].each do |cli_command|
+config[:cli][:commands].each do |cli_command|
   execute "#{command} #{cli_command}" do
     cwd    config[:dir]
     action :run

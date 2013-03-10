@@ -33,5 +33,6 @@ default['wordpress']['admin']['email'] = 'admin@localhost.localdomain'
 default['wordpress']['admin']['user'] = 'admin'
 default['wordpress']['admin']['password'] = 'admin'
 
-default['wordpress']['cli_install_dir'] = "/opt/wp-cli"
-default['wordpress']['cli_commands'] = []
+default['wordpress']['cli']['reference']   = "master"
+default['wordpress']['cli']['install_dir'] = "/opt/wp-cli"
+default['wordpress']['cli']['commands']    = []
